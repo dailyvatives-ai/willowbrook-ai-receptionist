@@ -1,81 +1,49 @@
-# Willowbrook Dental — AI Receptionist (Demo 1)
+# Willowbrook Dental — AI Receptionist
 
-A live, working AI receptionist demo: a WhatsApp-style chat widget that answers
-patient FAQs, gathers appointment details, flags emergencies, and logs
-qualified leads to a staff dashboard.
+**A live AI receptionist that answers patient questions, triages urgency, and hands the front desk a ready-to-call lead — 24 hours a day, on the channel patients already use.**
 
-**Stack:** FastAPI (backend) + Groq (Llama 3.3 70B, free tier) + plain HTML/CSS/JS
-(frontend) — one single web service, deployed free on Render. Same free-tier
-philosophy as your other two demos.
+🔗 **Live demo:** _add your Render URL here once deployed_
+🔗 **Staff dashboard:** `/admin` on the same URL
 
 ---
 
-## 1. Get a free Groq API key
+## The problem this solves
 
-1. Go to https://console.groq.com and sign up (free).
-2. Go to **API Keys** → **Create API Key**.
-3. Copy the key — you'll paste it into Render in step 3 below. You will not be able to see it again after leaving the page, so save it somewhere safe for now.
+Small healthcare and service practices lose patients every day to voicemail, after-hours silence, and front-desk staff who can't be on the phone and at the counter at the same time. A missed message often just means a lost patient — they message the next clinic instead.
 
-*(Term explained: an "API key" is like a password that lets your app talk to Groq's servers.
-Never put it directly in your code or commit it to GitHub — it goes in an environment
-variable instead, which is a setting stored outside your code, so it stays private.)*
+## What this AI receptionist does
 
-## 2. Push this project to GitHub
+- **Answers FAQs instantly** — hours, insurance, services — without a human touching it
+- **Holds a natural conversation**, not a rigid form, to find out why the patient is reaching out
+- **Triages urgency** — routine checkup vs. urgent vs. true emergency — and tells emergencies to call or go to the ER immediately, rather than just logging them
+- **Captures a qualified lead automatically** — name, reason for visit, urgency, preferred time — the moment it has enough information, using structured "tool calling" rather than fragile text parsing
+- **Surfaces every lead in a staff dashboard**, sorted by recency, so the front desk picks up exactly where the AI left off
 
-```bash
-cd dental-ai-receptionist
-git init
-git add .
-git commit -m "AI receptionist demo"
-```
+## Why it's built this way
 
-Then create a new empty repo on GitHub (e.g. `willowbrook-ai-receptionist`) and push:
+This runs as a WhatsApp-styled web chat widget rather than a live WhatsApp number — intentionally. The conversational logic, lead-qualification flow, and tool-calling architecture underneath are **exactly what would sit behind a real WhatsApp Business API integration** in a production build. That's the harder, more valuable part to get right; wiring it to a phone number is comparatively simple once the underlying agent works.
 
-```bash
-git remote add origin https://github.com/<your-username>/willowbrook-ai-receptionist.git
-git branch -M main
-git push -u origin main
-```
+## Tech stack
 
-## 3. Deploy on Render
+| Layer | Choice |
+|---|---|
+| Backend | FastAPI (Python) |
+| AI model | Llama 3.3 70B via Groq |
+| Structured data extraction | Native LLM tool/function calling |
+| Frontend | HTML, CSS, vanilla JS — no framework overhead |
+| Hosting | Render |
 
-1. Go to https://render.com and sign in (free tier is enough).
-2. Click **New +** → **Web Service**.
-3. Connect your GitHub account and select the repo you just pushed.
-4. Render should auto-detect the settings from `render.yaml`. If it asks manually, use:
-   - **Build Command:** `pip install -r requirements.txt`
-   - **Start Command:** `uvicorn main:app --host 0.0.0.0 --port $PORT`
-   - **Instance Type:** Free
-5. Under **Environment**, add these two variables:
-   - `GROQ_API_KEY` → paste the key from step 1
-   - `ADMIN_KEY` → make up any password (e.g. `willowbrook2026`) — this protects your staff dashboard at `/admin` so random visitors can't see captured leads.
-6. Click **Create Web Service**. First deploy takes ~2-3 minutes.
+## Adapting this for your business
 
-Once it's live, Render gives you a URL like:
-`https://willowbrook-ai-receptionist.onrender.com`
+This demo is built around a dental clinic, but the underlying pattern — *conversational intake → structured qualification → staff-ready lead* — applies directly to:
 
-*(Term explained: "deploy" just means "put your code on a server so it's live on
-the internet, not just running on your own laptop." Render is doing that server
-part for you, for free.)*
+- Med spas, salons, and wellness clinics
+- Home service businesses (plumbing, HVAC, electricians)
+- Real estate inquiries
+- Any business currently losing leads to unanswered messages outside business hours
 
-## 4. Try it
+Want this built for your business, on your actual WhatsApp number or website chat? [Get in touch](#) — happy to walk through what a real integration would look like for your specific workflow.
 
-- Visit your Render URL → chat with Ivy directly on the landing page.
-- Try things like:
-  - "What are your hours?"
-  - "Do you take PPO insurance?"
-  - "I have a bad toothache, can I come in this week? My name is Raj, prefer Thursday afternoon."
-- After a conversation where Ivy has your name, reason, urgency, and preferred time, she'll log it as a lead automatically.
-- Visit `/admin` on the same URL, enter your `ADMIN_KEY`, and see the captured lead appear.
+---
 
-## Notes for your Upwork portfolio entry
-
-- **Title idea:** "AI Receptionist for Dental Clinics — WhatsApp-Style Lead Capture"
-- **Case study angle:** Problem (missed after-hours messages, manual triage) → Solution (AI receptionist that qualifies and logs leads automatically) → Tech (FastAPI, Groq/Llama 3.3, tool-calling for structured data extraction).
-- Mention explicitly: built as a web chat widget using the same conversational/tool-calling architecture that would sit behind a real WhatsApp Business API + Twilio integration in production — this shows you understand the real deployment path without pretending you spun up paid WhatsApp infrastructure for a portfolio piece.
-- Add both the live link and a couple of screenshots (or a short screen-recording GIF) of the chat + admin dashboard, since a static screenshot alone won't show the "watch it think" quality that makes AI demos land with clients.
-
-## Notes / limitations (fine for a demo, mention if a client asks)
-
-- Leads are stored in memory — they reset if the free Render instance restarts (which free instances do after ~15 min of inactivity, and Render "wakes" them on the next request — a small 10-20 second delay on first message after idle is expected on the free tier).
-- No real WhatsApp/Twilio integration — this is intentional for the free/portfolio version; the same backend logic would plug into Twilio's WhatsApp API for a real client with minimal changes.
+*This is a portfolio demo built with a fictional clinic. No real patient data is used or stored.*
