@@ -2,9 +2,10 @@
 
 **A live AI receptionist that answers patient questions, triages urgency, and hands the front desk a ready-to-call lead — 24 hours a day, on the channel patients already use.**
 
-🔗 **Live demo:** _add your Render URL here once deployed_
-🔗 **Staff dashboard:** `/admin` on the same URL
+🔗 **Live demo:** https://willowbrook-ai-receptionist.onrender.com/
+🔗 **Staff dashboard:** https://willowbrook-ai-receptionist.onrender.com/admin
 
+Admin Key/Password: willowbrook2026
 ---
 
 ## The problem this solves
@@ -42,8 +43,22 @@ This demo is built around a dental clinic, but the underlying pattern — *conve
 - Real estate inquiries
 - Any business currently losing leads to unanswered messages outside business hours
 
-Want this built for your business, on your actual WhatsApp number or website chat? [Get in touch](#) — happy to walk through what a real integration would look like for your specific workflow.
+Want this built for your business, on your actual WhatsApp number or website chat?
+Happy to walk through what a real integration would look like for your specific workflow.
 
+I build custom versions with your own branding, document set, and integration into your existing website or CRM.
+
+**📩 Get in touch:**
+- Upwork: https://upwork.com/freelancers/gauravpanwar6
+- Freelancer.com: https://www.freelancer.com/u/megauravpanwar?sb=t
+- Email: gauravpanwarninetynine[at]gmail.com
+
+---
+## Credits
+
+Built by **Gaurav Panwar** — Full-Stack Developer & AI Automation Engineer, 14+ years in software development (Python, React, Node.js), now building AI agent and automation solutions for businesses under **Dailyvatives** (Dailyvatives).
+
+⭐ If this was useful or interesting, a star on this repo is appreciated.
 ---
 
 *This is a portfolio demo built with a fictional clinic. No real patient data is used or stored.*
