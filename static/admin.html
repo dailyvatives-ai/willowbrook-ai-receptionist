@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Front Desk Dashboard — Willowbrook Dental</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/styles.css" />
+<link rel="stylesheet" href="/static/admin.css" />
+</head>
+<body class="admin-body">
+
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand">
+        <span class="brand-mark">W</span>
+        <span class="brand-name">Willowbrook<em>Dental</em></span>
+      </div>
+      <nav class="topnav">
+        <a href="/">Patient site</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap admin-wrap">
+
+    <div id="gate" class="gate">
+      <h2>Front desk access</h2>
+      <p>Enter the admin key to view leads captured by Ivy.</p>
+      <input id="adminKeyInput" type="password" placeholder="Admin key" />
+      <button id="unlockBtn" class="btn-primary">Unlock dashboard</button>
+      <p id="gateError" class="gate-error"></p>
+    </div>
+
+    <div id="dashboard" class="dashboard hidden">
+      <div class="dash-head">
+        <div>
+          <p class="eyebrow">Front desk</p>
+          <h2>Leads captured by Ivy</h2>
+        </div>
+        <button id="refreshBtn" class="btn-secondary">Refresh</button>
+      </div>
+
+      <div id="leadsEmpty" class="leads-empty hidden">
+        No leads yet — go chat with Ivy on the patient site and describe a visit to see one show up here.
+      </div>
+
+      <div id="leadsList" class="leads-list"></div>
+    </div>
+
+  </main>
+
+<script src="/static/admin.js"></script>
+</body>
+</html>

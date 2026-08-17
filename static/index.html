@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Willowbrook Dental Care — AI Receptionist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand">
+        <span class="brand-mark">W</span>
+        <span class="brand-name">Willowbrook<em>Dental</em></span>
+      </div>
+      <nav class="topnav">
+        <a href="#how">How it works</a>
+        <a href="#chat">Try the receptionist</a>
+        <a href="/admin">Staff dashboard</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <div class="hero-copy">
+        <p class="eyebrow">AI Receptionist — live demo</p>
+        <h1>Every message answered.<br>Every patient triaged.<br>Nothing missed after 6pm.</h1>
+        <p class="hero-sub">
+          Willowbrook Dental Care used to lose patients to voicemail. Now Ivy — an
+          AI receptionist — answers questions, gathers what the front desk needs,
+          and flags anything urgent, on WhatsApp, 24 hours a day.
+        </p>
+        <a href="#chat" class="btn-primary">Message Ivy now →</a>
+      </div>
+
+      <div class="hero-phone">
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="chat-app">
+            <div class="chat-header">
+              <div class="chat-avatar">🦷</div>
+              <div class="chat-header-text">
+                <strong>Ivy · Willowbrook Dental</strong>
+                <span id="statusLine">online</span>
+              </div>
+            </div>
+            <div class="chat-body" id="chatBody">
+              <div class="bubble bubble-in">
+                Hi! I'm Ivy, the AI receptionist for Willowbrook Dental Care 🦷
+                Ask me about hours, insurance, or tell me what's going on and
+                I'll get you booked in.
+              </div>
+            </div>
+            <div class="chat-input-row">
+              <input id="chatInput" type="text" placeholder="Type a message…" autocomplete="off" />
+              <button id="sendBtn" aria-label="Send">➤</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="how" id="how">
+      <div class="wrap">
+        <p class="eyebrow">How this works</p>
+        <h2>Three steps, no missed messages</h2>
+        <div class="steps">
+          <div class="step">
+            <span class="step-num">01</span>
+            <h3>Patient messages in</h3>
+            <p>Any time, any day — a question about hours, a toothache, a booking request. Ivy responds instantly.</p>
+          </div>
+          <div class="step">
+            <span class="step-num">02</span>
+            <h3>Ivy triages &amp; qualifies</h3>
+            <p>She gathers the name, reason for the visit, urgency, and a preferred time — conversationally, not like a form.</p>
+          </div>
+          <div class="step">
+            <span class="step-num">03</span>
+            <h3>Staff sees a ready-to-call lead</h3>
+            <p>Every qualified conversation lands in the front desk's dashboard, sorted by urgency, ready for a confirmation call.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chat-section" id="chat">
+      <div class="wrap chat-section-inner">
+        <div class="chat-section-copy">
+          <p class="eyebrow">Try it yourself</p>
+          <h2>This is a live, working AI receptionist</h2>
+          <p>
+            Say hello, ask about opening hours, or describe a dental problem —
+            watch Ivy hold a real conversation and quietly log a qualified lead
+            once she has enough to work with. This is the same conversational
+            logic that would sit behind a real WhatsApp Business number in
+            production.
+          </p>
+          <p class="note">
+            Built with FastAPI + Groq (Llama 3.3 70B) using tool-calling for
+            structured lead capture. Deployed free on Render.
+          </p>
+        </div>
+        <div class="chat-section-widget">
+          <div class="phone-frame small">
+            <div class="phone-notch"></div>
+            <div class="chat-app">
+              <div class="chat-header">
+                <div class="chat-avatar">🦷</div>
+                <div class="chat-header-text">
+                  <strong>Ivy · Willowbrook Dental</strong>
+                  <span>online</span>
+                </div>
+              </div>
+              <div class="chat-body" id="chatBody2">
+                <div class="bubble bubble-in">
+                  Hi again! Try asking me something like "do you take PPO insurance?" or "I have a toothache, can I come in this week?"
+                </div>
+              </div>
+              <div class="chat-input-row">
+                <input id="chatInput2" type="text" placeholder="Type a message…" autocomplete="off" />
+                <button id="sendBtn2" aria-label="Send">➤</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p>Willowbrook Dental Care is a fictional practice built to demonstrate an AI receptionist workflow.</p>
+    </div>
+  </footer>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

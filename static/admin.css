@@ -1,0 +1,89 @@
+.admin-wrap { padding: 56px 28px; max-width: 800px; }
+
+.gate {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 32px;
+  max-width: 420px;
+}
+.gate h2 { font-size: 22px; margin-bottom: 8px; }
+.gate p { color: var(--ink-soft); font-size: 14px; margin: 0 0 18px; }
+.gate input {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  margin-bottom: 14px;
+  outline: none;
+}
+.gate input:focus { border-color: var(--teal); }
+.gate-error { color: var(--brick); font-size: 13px; margin-top: 10px; min-height: 16px; }
+
+.hidden { display: none !important; }
+
+.dash-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+.dash-head h2 { font-size: 26px; }
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--teal);
+  color: var(--teal);
+  padding: 9px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 13.5px;
+  cursor: pointer;
+}
+.btn-secondary:hover { background: var(--teal); color: #fff; }
+
+.leads-empty {
+  color: var(--ink-soft);
+  font-size: 14px;
+  background: var(--surface);
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  padding: 26px;
+  text-align: center;
+}
+
+.leads-list { display: flex; flex-direction: column; gap: 12px; }
+
+.lead-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px 18px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 16px;
+  align-items: center;
+}
+.lead-urgency {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 5px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.lead-urgency.routine { background: #E4EFE9; color: var(--teal-deep); }
+.lead-urgency.urgent { background: #FBEAD3; color: #8A5A16; }
+.lead-urgency.emergency { background: #F6DAD4; color: var(--brick); }
+
+.lead-main strong { font-size: 15px; }
+.lead-main p { margin: 4px 0 0; font-size: 13.5px; color: var(--ink-soft); }
+
+.lead-time { font-size: 12px; color: var(--ink-soft); white-space: nowrap; }
+
+@media (max-width: 600px) {
+  .lead-card { grid-template-columns: 1fr; }
+}
